@@ -20,17 +20,19 @@ public class Menu {
 
 	static String palabras[] = new String[3];
 
+	static int size;
+
 	public static void desplegarMenu1() {
 
 		System.out.println(
-				"-------MENU---------\n (1) Ingresar tres palabras\n  (2) Ingresar dos  numeros reales mayores a cero\n  (3) desplegar en pantalla arreglos ingresados(3) ");
+				"-------MENU---------\n (1) Ingresar tres palabras\n  (2) Ingresar dos  numeros reales mayores a cero\n  (3) ingresar tres arreglos de numeros enteros(3) ");
 		opciones = entrada.nextInt();
 
 		entrada.nextLine();
 
 		switch (opciones) {
 
-		case 1:
+			case 1:
 
 			if (opciones == 1) {
 
@@ -51,6 +53,8 @@ public class Menu {
 				System.out.println(
 						"(3) Desplegar la lingitud de cada una de las cadenas\n (4) concatenar las tres cadenas\n (5) ingrese caracter de la cadena ");
 
+						
+
 				opciones2 = entrada.nextInt();
 
 				operacionesConPalabras();
@@ -59,7 +63,7 @@ public class Menu {
 
 			break;
 
-		case 2:
+			case 2:
 
 			System.out.println("ingrese numero real 1");
 
@@ -82,6 +86,11 @@ public class Menu {
 
 			break;
 
+			case 3: 
+
+			System.out.println("(9) show in screen the arrays type\n (10) indicate average value of the values etered into the array\n (11) indicate higher value\n (12) make operation with arrays\n (13) link the tree arrays typed \n (14) intercept arrays typed \n (15) turn array type \n (16) sort array ");
+
+			operationsWhitArrays();
 		}
 
 		
@@ -144,7 +153,7 @@ public class Menu {
 
 		if (num1<0 && num2<0){
 
-			System.out.println("el numero ingresado es menor a cero");
+			System.out.println("the num int is less than zero");
 
 		}	else{
 
@@ -194,12 +203,72 @@ public class Menu {
 
 	}
 
+	public static  int operationsWhitArrays(int[] array1,int[] array2,int[] array3 ){
+		
+		
+
+	System.out.println("int the long of array");
+
+	size=entrada.nextInt();
+
+	System.out.println("type "+size +" numbers for array 1");
+
+	opciones2=entrada.nextInt();
+
+	switch(opciones2){
+
+	case 9:
+
+	
+
+	for (int i=0; i<array1.length; i++ ){
+
+		  
+
+	}
+
+	return System.out.println("the value of the arrays is"+ array1[size]);
+
+	break;
+
+
+	}
+
+	
+	 
+	
+
+	
+
+
+
+
+
+	}
+
 
 
 
 	public static void main(String[] args) {
 
 		desplegarMenu1();
+
+		int array1[] = new int[size];
+
+		size=entrada.nextInt();
+
+		int array2[] = new int[size];
+
+		size=entrada.nextInt();
+
+		int array[] = new int[size];
+
+		int result[] = new int[size];
+
+
+		
+
+
 
 	}
 
