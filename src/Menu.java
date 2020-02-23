@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Menu {
@@ -151,6 +152,23 @@ public class Menu {
 
 						break;
 
+					case 11:
+
+					System.out.println("the number higher  is " + operationsWithArrays3(array1, array2, array3));
+
+					break;
+
+					
+
+						
+
+						
+
+					
+
+					
+					
+
 				}
 
 		}
@@ -272,7 +290,7 @@ public class Menu {
 
 	public static double operationsWithArrays2(int[] array1, int[] array2, int[] array3) {
 
-		System.out.println("enter numbers for array1");
+		
 
 		System.out.println("select a array \n (1) for array1 \n (2) for array2 \n (3) for array3");
 
@@ -294,6 +312,8 @@ public class Menu {
 
 				result = suma / array1.length;
 
+				break;
+
 			case 2:
 
 				suma = 0;
@@ -305,6 +325,8 @@ public class Menu {
 				}
 
 				result = suma / array2.length;
+
+				break;
 
 			case 3:
 
@@ -320,11 +342,102 @@ public class Menu {
 
 				result = suma / array3.length;
 
+				break;
+
 		}
 
 		return result;
 
 	}
+
+	public static double operationsWithArrays3(int[] array1, int[] array2, int[] array3){
+
+		System.out.println("select a array \n (1) for array1 \n (2) for array2 \n (3) for array3");
+
+		opciones2 = entrada.nextInt();
+
+		int elMayor=0;
+
+		switch (opciones2) {
+
+			case 1:
+
+			elMayor = Integer.MIN_VALUE;
+
+				
+				elMayor=0;
+
+				for (int i = 0; i < array1.length; i++) {
+
+					
+
+					if (array1[i]<elMayor){
+
+						elMayor=array1[i];
+
+					}
+
+				}
+
+				break;
+
+				
+
+			case 2:
+
+				elMayor = Integer.MIN_VALUE;
+
+				elMayor = 0;
+
+				for (int i = 0; i < array2.length; i++) {
+
+					if (array2[i]<elMayor){
+
+						elMayor=array2[i];
+
+					}
+
+				}
+
+				break;
+
+			case 3:
+
+				elMayor = 0;
+
+				
+
+				for (int i = 0; i < array3.length; i++) {
+
+					for (int j=0; j< array3.length; j++){
+
+						if (array3[i]>array3[j]){
+
+						elMayor=array3[i];
+
+						}
+					}
+					
+				}
+
+				
+			
+			break;
+
+			
+
+		}
+
+		return elMayor;
+
+	}
+
+
+
+
+	
+
+
 
 	public static void main(String[] args) {
 
