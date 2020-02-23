@@ -22,6 +22,16 @@ public class Menu {
 
 	static int size;
 
+	static int array1[];
+
+	static int array2[];
+
+	static int array3[];
+
+	static double result;
+
+	static int a;
+
 	public static void desplegarMenu1() {
 
 		System.out.println(
@@ -34,69 +44,116 @@ public class Menu {
 
 			case 1:
 
-			if (opciones == 1) {
+				if (opciones == 1) {
 
-				System.out.println("ingrese tres palabra");
-				// palabras[0] = entrada.nextLine();
-				// palabras[1] = entrada.nextLine();
-				// palabras[2] = entrada.nextLine();
+					System.out.println("ingrese tres palabra");
+					// palabras[0] = entrada.nextLine();
+					// palabras[1] = entrada.nextLine();
+					// palabras[2] = entrada.nextLine();
 
-				for (int i = 0; i < ARREGLOS; i++) {
+					for (int i = 0; i < ARREGLOS; i++) {
 
-					palabras[i] = entrada.nextLine();
+						palabras[i] = entrada.nextLine();
 
-					// System.out.println("se imprimio la palabra" + palabras[i] );
+						// System.out.println("se imprimio la palabra" + palabras[i] );
+
+					}
+
+					// System.out.println(palabras[0]+""+palabras[1]+palabras[2]);
+					System.out.println(
+							"(3) Desplegar la lingitud de cada una de las cadenas\n (4) concatenar las tres cadenas\n (5) ingrese caracter de la cadena ");
+
+					opciones2 = entrada.nextInt();
+
+					operacionesConPalabras();
 
 				}
 
-				// System.out.println(palabras[0]+""+palabras[1]+palabras[2]);
-				System.out.println(
-						"(3) Desplegar la lingitud de cada una de las cadenas\n (4) concatenar las tres cadenas\n (5) ingrese caracter de la cadena ");
-
-						
-
-				opciones2 = entrada.nextInt();
-
-				operacionesConPalabras();
-
-			}
-
-			break;
+				break;
 
 			case 2:
 
-			System.out.println("ingrese numero real 1");
+				System.out.println("ingrese numero real 1");
 
-			num1=entrada.nextDouble();
+				num1 = entrada.nextDouble();
 
+				System.out.println("ingrese numero real 2");
 
-	
+				num2 = entrada.nextDouble();
 
-			System.out.println("ingrese numero real 2");
-
-
-			num2=entrada.nextDouble();
-
-
-			System.out.println(
-					"(6) Mostrar division de ambos numeros\n (7) mostrar division y residuo de ambos numeros\n (8) ingrese caracter de la cadena ingresar longitud de arreglo ");
+				System.out.println(
+						"(6) Mostrar division de ambos numeros\n (7) mostrar division y residuo de ambos numeros\n (8) ingrese caracter de la cadena ");
 
 				numberOperations();
 
+				break;
 
-			break;
+			case 3:
 
-			case 3: 
+				System.out.println("enter array1 size");
 
-			System.out.println("(9) show in screen the arrays type\n (10) indicate average value of the values etered into the array\n (11) indicate higher value\n (12) make operation with arrays\n (13) link the tree arrays typed \n (14) intercept arrays typed \n (15) turn array type \n (16) sort array ");
+				size = entrada.nextInt();
 
-			operationsWhitArrays();
+				int array1[] = new int[size];
+
+				System.out.println("enter array2 size");
+
+				size = entrada.nextInt();
+
+				int array2[] = new int[size];
+
+				System.out.println("enter array3 size");
+
+				size = entrada.nextInt();
+
+				int array3[] = new int[size];
+
+				System.out.println("enter numbers for array1");
+
+				for (int i = 0; i < array1.length; i++) {
+
+					array1[i] = entrada.nextInt();
+
+				}
+
+				System.out.println("enter numbers for array2");
+
+				for (int i = 0; i < array2.length; i++) {
+
+					array2[i] = entrada.nextInt();
+
+				}
+
+				System.out.println("enter numbers for array3");
+
+				for (int i = 0; i < array3.length; i++) {
+
+					array3[i] = entrada.nextInt();
+
+				}
+
+				System.out.println(
+						"(9) show in screen the arrays type\n (10) indicate average value of the values etered into the array\n (11) indicate higher value\n (12) make operation with arrays\n (13) link the tree arrays typed \n (14) intercept arrays typed \n (15) turn array type \n (16) sort array ");
+
+				opciones2 = entrada.nextInt();
+
+				switch (opciones2) {
+
+					case 9:
+
+						System.out.println("the result is equal to " + operationsWithArrays(array1, array2, array3));
+
+						break;
+
+					case 10:
+
+						System.out.println("the result is equal to " + operationsWithArrays2(array1, array2, array3));
+
+						break;
+
+				}
+
 		}
-
-		
-
-
-		
 
 	}
 
@@ -104,171 +161,174 @@ public class Menu {
 
 		switch (opciones2) {
 
-		case 3:
+			case 3:
 
-			String resul = "";
+				String resul = "";
 
-			for (int i = 0; i < ARREGLOS; i++) {
+				for (int i = 0; i < ARREGLOS; i++) {
 
-				resul += palabras[i];
+					resul += palabras[i];
 
-				System.out.println(resul);
+					System.out.println(resul);
 
-			}
+				}
 
-			break;
+				break;
 
-		case 4:
-			System.out.println(palabras[0] + "" + palabras[1] + "" + palabras[2]);
+			case 4:
+				System.out.println(palabras[0] + "" + palabras[1] + "" + palabras[2]);
 
-			break;
+				break;
 
-		case 5:
+			case 5:
 
-			System.out.println("type a position");
+				System.out.println("type a position");
 
-			posicion = entrada.nextInt();
+				posicion = entrada.nextInt();
 
-			posicion--;
+				posicion--;
 
-			if (posicion > palabras[0].length() && posicion > palabras[1].length() && posicion > palabras[2].length()) {
+				if (posicion > palabras[0].length() && posicion > palabras[1].length()
+						&& posicion > palabras[2].length()) {
 
-				System.out.println("the position type is bigger than string ");
+					System.out.println("the position type is bigger than string ");
 
-			} else {
+				} else {
 
-				System.out.println(palabras[0].charAt(posicion) + "\n" + palabras[1].charAt(posicion) + "\n"
-						+ palabras[2].charAt(posicion));
+					System.out.println(palabras[0].charAt(posicion) + "\n" + palabras[1].charAt(posicion) + "\n"
+							+ palabras[2].charAt(posicion));
 
-			}
-			break;
+				}
+				break;
 
 		}
 
 	}
 
-	public static void numberOperations(){
+	public static void numberOperations() {
 
 		opciones2 = entrada.nextInt();
 
-		if (num1<0 && num2<0){
+		if (num1 < 0 && num2 < 0) {
 
 			System.out.println("the num int is less than zero");
 
-		}	else{
+		} else {
 
-					switch (opciones2){
+			switch (opciones2) {
 
-			
+				case 6:
 
-				
-			
-
-					case 6:
-		
-					
-		
-						
-		
-					 
-						System.out.println("la division de ambos numeros es "+num1/num2);
-		
-						
-		
-					break;
-					
-		
-					case 7:
-
-						System.out.println("la division de ambos numeros es "+num1/num2+ "el residuo es "+ num1%num2);
+					System.out.println("la division de ambos numeros es " + num1 / num2);
 
 					break;
 
-					case 8:
+				case 7:
 
-					
+					System.out
+							.println("la division de ambos numeros es " + num1 / num2 + "el residuo es " + num1 % num2);
 
-					}
+					break;
 
+				case 8:
+
+			}
+
+		}
+
+	}
+
+	public static String operationsWithArrays(int[] array1, int[] array2, int[] array3) {
+
+		String c = "";
+
+		c += "\n array1:\n";
+
+		for (int i = 0; i < array1.length; i++) {
+
+			c += " " + array1[i];
+
+		}
+
+		c += "\n array2:\n";
+
+		for (int i = 0; i < array2.length; i++) {
+
+			c += " " + array2[i];
+
+		}
+
+		c += "\n array3:\n";
+
+		for (int i = 0; i < array3.length; i++) {
+
+			c += " " + array3[i];
+
+		}
+
+		return c;
+
+	}
+
+	public static double operationsWithArrays2(int[] array1, int[] array2, int[] array3) {
+
+		System.out.println("enter numbers for array1");
+
+		System.out.println("select a array \n (1) for array1 \n (2) for array2 \n (3) for array3");
+
+		opciones2 = entrada.nextInt();
+
+		int suma;
+
+		switch (opciones2) {
+
+			case 1:
+
+				suma = 0;
+
+				for (int i = 0; i < array1.length; i++) {
+
+					suma += array1[i];
 
 				}
-			
 
+				result = suma / array1.length;
 
+			case 2:
 
+				suma = 0;
 
-			
+				for (int i = 0; i < array2.length; i++) {
 
-		
+					suma += array2[i];
 
-	}
+				}
 
-	public static  int operationsWhitArrays(int[] array1,int[] array2,int[] array3 ){
-		
-		
+				result = suma / array2.length;
 
-	System.out.println("int the long of array");
+			case 3:
 
-	size=entrada.nextInt();
+				suma = 0;
 
-	System.out.println("type "+size +" numbers for array 1");
+				for (int i = 0; i < array3.length; i++) {
 
-	opciones2=entrada.nextInt();
+					suma += array3[i];
 
-	switch(opciones2){
+				}
 
-	case 9:
+				
 
-	
+				result = suma / array3.length;
 
-	for (int i=0; i<array1.length; i++ ){
+		}
 
-		  
-
-	}
-
-	return System.out.println("the value of the arrays is"+ array1[size]);
-
-	break;
-
+		return result;
 
 	}
-
-	
-	 
-	
-
-	
-
-
-
-
-
-	}
-
-
-
 
 	public static void main(String[] args) {
 
 		desplegarMenu1();
-
-		int array1[] = new int[size];
-
-		size=entrada.nextInt();
-
-		int array2[] = new int[size];
-
-		size=entrada.nextInt();
-
-		int array[] = new int[size];
-
-		int result[] = new int[size];
-
-
-		
-
-
 
 	}
 
