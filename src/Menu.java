@@ -158,6 +158,10 @@ public class Menu {
 
 					break;
 
+					case 12:
+
+
+
 					
 
 						
@@ -206,8 +210,7 @@ public class Menu {
 
 				posicion--;
 
-				if (posicion > palabras[0].length() && posicion > palabras[1].length()
-						&& posicion > palabras[2].length()) {
+				if (posicion > palabras[0].length() && posicion > palabras[1].length() && posicion > palabras[2].length()) {
 
 					System.out.println("the position type is bigger than string ");
 
@@ -369,13 +372,18 @@ public class Menu {
 
 				for (int i = 0; i < array1.length; i++) {
 
-					
+					for (int j=0; j< array1.length; j++){
 
-					if (array1[i]<elMayor){
+						if (array1[i]>array1[j]){
 
-						elMayor=array1[i];
-
+							elMayor=array1[i];
+	
+						}
+						
+						
 					}
+
+					
 
 				}
 
@@ -391,11 +399,18 @@ public class Menu {
 
 				for (int i = 0; i < array2.length; i++) {
 
-					if (array2[i]<elMayor){
+					for (int j=0; j< array2.length; j++){
 
-						elMayor=array2[i];
+						if (array2[i]>array2[j]){
 
+							elMayor=array2[i];
+	
+						}
+						
+						
 					}
+
+					
 
 				}
 
@@ -431,6 +446,40 @@ public class Menu {
 		return elMayor;
 
 	}
+
+	//public static double operationsWithArrays4(int[] array1, int[] array2, int[] array3){
+
+		//System.out.println("select the operation \n (1) multiply \n (2) divide \n (3) subtract");
+
+		//opciones2 = entrada.nextInt();
+
+		//switch (opciones2){
+
+			//case 1:
+
+			//System.out.println("select two arrays \n (1) for array1 and array2 \n (2) for array1 and array3 \n (3) for array2 and array3");
+
+			//opciones2 = entrada.nextInt();
+
+			//switch(opciones2){
+
+				//case 1:
+
+				
+			//}
+
+		//}
+
+
+
+		
+
+		
+
+
+
+
+	//}
 
 
 
