@@ -5,21 +5,21 @@ public class Menu {
 
 	static Scanner entrada = new Scanner(System.in);
 
-	private final static int PALABRAS = 1;
+	private final static int WORDS = 1;
 
-	private final static int NUMEROS = 2;
+	private final static int NUMBERS = 2;
 
-	private final static int ARREGLOS = 3;
+	private final static int ARRAYS = 3;
 
-	private static int opciones;
+	private static int options;
 
 	private static double num1, num2;
 
-	private static int opciones2;
+	private static int options2;
 
-	private static int posicion;
+	private static int position;
 
-	static String palabras[] = new String[3];
+	static String[] words = new String[3];
 
 	static int size;
 
@@ -31,30 +31,32 @@ public class Menu {
 
 	static double result;
 
+	static int operations[];
+
 	static int a;
 
 	public static void desplegarMenu1() {
 
 		System.out.println(
 				"-------MENU---------\n (1) Ingresar tres palabras\n  (2) Ingresar dos  numeros reales mayores a cero\n  (3) ingresar tres arreglos de numeros enteros(3) ");
-		opciones = entrada.nextInt();
+		options = entrada.nextInt();
 
 		entrada.nextLine();
 
-		switch (opciones) {
+		switch (options) {
 
-			case 1:
+			case WORDS:
 
-				if (opciones == 1) {
+				if (options == 1) {
 
 					System.out.println("ingrese tres palabra");
 					// palabras[0] = entrada.nextLine();
 					// palabras[1] = entrada.nextLine();
 					// palabras[2] = entrada.nextLine();
 
-					for (int i = 0; i < ARREGLOS; i++) {
+					for (int i = 0; i < ARRAYS; i++) {
 
-						palabras[i] = entrada.nextLine();
+						words[i] = entrada.nextLine();
 
 						// System.out.println("se imprimio la palabra" + palabras[i] );
 
@@ -64,7 +66,7 @@ public class Menu {
 					System.out.println(
 							"(3) Desplegar la lingitud de cada una de las cadenas\n (4) concatenar las tres cadenas\n (5) ingrese caracter de la cadena ");
 
-					opciones2 = entrada.nextInt();
+					options2 = entrada.nextInt();
 
 					operacionesConPalabras();
 
@@ -72,7 +74,7 @@ public class Menu {
 
 				break;
 
-			case 2:
+			case NUMBERS:
 
 				System.out.println("ingrese numero real 1");
 
@@ -89,7 +91,7 @@ public class Menu {
 
 				break;
 
-			case 3:
+			case ARRAYS:
 
 				System.out.println("enter array1 size");
 
@@ -136,9 +138,9 @@ public class Menu {
 				System.out.println(
 						"(9) show in screen the arrays type\n (10) indicate average value of the values etered into the array\n (11) indicate higher value\n (12) make operation with arrays\n (13) link the tree arrays typed \n (14) intercept arrays typed \n (15) turn array type \n (16) sort array ");
 
-				opciones2 = entrada.nextInt();
+				options2 = entrada.nextInt();
 
-				switch (opciones2) {
+				switch (options2) {
 
 					case 9:
 
@@ -159,6 +161,42 @@ public class Menu {
 					break;
 
 					case 12:
+
+						if (array1.length==array2.length && array1.length==array3.length) {
+
+							
+
+							int[] o = operationsWithArrays4(array1, array2, array3);
+
+							for  (int i=0;i<o.length;i++){
+						
+							System.out.println("The result of operation is "+o[i]);
+
+						} 
+
+					}else {System.out.println("remember that to use this option the arrays must to have iqual size" );}
+
+
+					break;
+
+					case 13:
+
+					String[] s = operationsWithArrays5(array1, array2, array3);
+
+					for  (int i=0;i<s.length;i++){
+
+						System.out.println(s[i]);
+					}
+
+					case 14:
+
+					String[] string = operationsWithArrays6(array1, array2, array3);
+					
+					for  (int i=0;i<string.length;i++){
+
+						System.out.println(string[i]);
+					}
+
 
 
 
@@ -181,15 +219,15 @@ public class Menu {
 
 	public static void operacionesConPalabras() {
 
-		switch (opciones2) {
+		switch (options2) {
 
 			case 3:
 
 				String resul = "";
 
-				for (int i = 0; i < ARREGLOS; i++) {
+				for (int i = 0; i < ARRAYS; i++) {
 
-					resul += palabras[i];
+					resul += words[i];
 
 					System.out.println(resul);
 
@@ -198,7 +236,7 @@ public class Menu {
 				break;
 
 			case 4:
-				System.out.println(palabras[0] + "" + palabras[1] + "" + palabras[2]);
+				System.out.println(words[0] + "" + words[1] + "" + words[2]);
 
 				break;
 
@@ -206,18 +244,18 @@ public class Menu {
 
 				System.out.println("type a position");
 
-				posicion = entrada.nextInt();
+				position = entrada.nextInt();
 
-				posicion--;
+				position--;
 
-				if (posicion > palabras[0].length() && posicion > palabras[1].length() && posicion > palabras[2].length()) {
+				if (position > words[0].length() && position > words[1].length() && position > words[2].length()) {
 
 					System.out.println("the position type is bigger than string ");
 
 				} else {
 
-					System.out.println(palabras[0].charAt(posicion) + "\n" + palabras[1].charAt(posicion) + "\n"
-							+ palabras[2].charAt(posicion));
+					System.out.println(words[0].charAt(position) + "\n" + words[1].charAt(position) + "\n"
+							+ words[2].charAt(position));
 
 				}
 				break;
@@ -228,7 +266,7 @@ public class Menu {
 
 	public static void numberOperations() {
 
-		opciones2 = entrada.nextInt();
+		options2 = entrada.nextInt();
 
 		if (num1 < 0 && num2 < 0) {
 
@@ -236,7 +274,7 @@ public class Menu {
 
 		} else {
 
-			switch (opciones2) {
+			switch (options2) {
 
 				case 6:
 
@@ -297,53 +335,53 @@ public class Menu {
 
 		System.out.println("select a array \n (1) for array1 \n (2) for array2 \n (3) for array3");
 
-		opciones2 = entrada.nextInt();
+		options2 = entrada.nextInt();
 
-		int suma;
+		int sum;
 
-		switch (opciones2) {
+		switch (options2) {
 
 			case 1:
 
-				suma = 0;
+				sum = 0;
 
 				for (int i = 0; i < array1.length; i++) {
 
-					suma += array1[i];
+					sum += array1[i];
 
 				}
 
-				result = suma / array1.length;
+				result = sum / array1.length;
 
 				break;
 
 			case 2:
 
-				suma = 0;
+				sum = 0;
 
 				for (int i = 0; i < array2.length; i++) {
 
-					suma += array2[i];
+					sum += array2[i];
 
 				}
 
-				result = suma / array2.length;
+				result = sum / array2.length;
 
 				break;
 
 			case 3:
 
-				suma = 0;
+				sum = 0;
 
 				for (int i = 0; i < array3.length; i++) {
 
-					suma += array3[i];
+					sum += array3[i];
 
 				}
 
 				
 
-				result = suma / array3.length;
+				result = sum / array3.length;
 
 				break;
 
@@ -357,18 +395,18 @@ public class Menu {
 
 		System.out.println("select a array \n (1) for array1 \n (2) for array2 \n (3) for array3");
 
-		opciones2 = entrada.nextInt();
+		options2 = entrada.nextInt();
 
-		int elMayor=0;
+		int theOldest=0;
 
-		switch (opciones2) {
+		switch (options2) {
 
 			case 1:
 
-			elMayor = Integer.MIN_VALUE;
+			theOldest = Integer.MIN_VALUE;
 
 				
-				elMayor=0;
+				theOldest=0;
 
 				for (int i = 0; i < array1.length; i++) {
 
@@ -376,7 +414,7 @@ public class Menu {
 
 						if (array1[i]>array1[j]){
 
-							elMayor=array1[i];
+							theOldest=array1[i];
 	
 						}
 						
@@ -393,9 +431,9 @@ public class Menu {
 
 			case 2:
 
-				elMayor = Integer.MIN_VALUE;
+				theOldest = Integer.MIN_VALUE;
 
-				elMayor = 0;
+				theOldest = 0;
 
 				for (int i = 0; i < array2.length; i++) {
 
@@ -403,7 +441,7 @@ public class Menu {
 
 						if (array2[i]>array2[j]){
 
-							elMayor=array2[i];
+							theOldest=array2[i];
 	
 						}
 						
@@ -418,7 +456,7 @@ public class Menu {
 
 			case 3:
 
-				elMayor = 0;
+				theOldest = 0;
 
 				
 
@@ -428,7 +466,7 @@ public class Menu {
 
 						if (array3[i]>array3[j]){
 
-						elMayor=array3[i];
+						theOldest=array3[i];
 
 						}
 					}
@@ -443,32 +481,48 @@ public class Menu {
 
 		}
 
-		return elMayor;
+		return theOldest;
 
 	}
 
-	//public static double operationsWithArrays4(int[] array1, int[] array2, int[] array3){
+	public static int[] operationsWithArrays4(int[] array1, int[] array2, int[] array3){
+		int operations[]=new int [array1.length];
 
-		//System.out.println("select the operation \n (1) multiply \n (2) divide \n (3) subtract");
+		System.out.println("select the operation \n (1) multiply \n (2) divide \n (3) subtract");
 
-		//opciones2 = entrada.nextInt();
+		options2 = entrada.nextInt();
 
-		//switch (opciones2){
+		switch (options2){
 
-			//case 1:
+			case 1:
 
-			//System.out.println("select two arrays \n (1) for array1 and array2 \n (2) for array1 and array3 \n (3) for array2 and array3");
+			System.out.println("select two arrays \n (1) for array1 and array2 \n (2) for array2 and array3 \n (3) for array3 and array1 ");
 
-			//opciones2 = entrada.nextInt();
+			options2 = entrada.nextInt();
 
-			//switch(opciones2){
+			switch (options2){
 
-				//case 1:
+				case 1:
+
+			
+
+				for (int i=0; i<operations.length; i++){
+
+					operations[i]=array1[i]*array2[i];
+
+					
+
+
+
+				}
+				
+				break;
+				
 
 				
-			//}
+			}
 
-		//}
+		}
 
 
 
@@ -476,10 +530,72 @@ public class Menu {
 
 		
 
+		return operations;
 
 
+	}
 
-	//}
+	public static String[] operationsWithArrays5(int[] array1, int[] array2, int[] array3 ){
+
+		String[] array= new String[array1.length+array2.length+array3.length];
+
+		for (int i = 0; i < array.length; i++) {
+			
+
+			if(i>-1 && i<array1.length){
+				array[i]= Integer.toString(array1[i]);
+			}
+
+			if(i>array1.length-1 && i<array1.length+array2.length){
+			
+				array[i] = Integer.toString(array2[i-array1.length]);
+			
+			}
+
+			if(i>array1.length+array2.length-1){
+
+				array[i]= Integer.toString(array3[i-(array1.length+array2.length)]);
+
+
+			}
+			
+		}
+
+		
+
+
+		return array;
+
+
+	}
+
+	public static String[] operationsWithArrays6(int[] array1, int[] array2, int[] array3 ){
+
+		String[] array= new String[array1.length+array2.length+array3.length];
+
+		for (int i=0; i < array.length; i++) {
+			
+			for (int j=0; i<array.length; j++){
+
+				if (array1[i]==array2[j]);
+
+
+			}
+
+					
+			
+		}
+
+		
+
+
+		return array;
+
+
+	}
+
+
+	
 
 
 
