@@ -1,6 +1,13 @@
 
 import java.util.Scanner;
 
+
+/**
+ * This is the principal class of MenuApp
+ *
+ * @author Anderson Rueda
+ * @version 1.0
+ */
 public class Menu {
 
 	static Scanner entrada = new Scanner(System.in);
@@ -35,6 +42,9 @@ public class Menu {
 
 	static int a;
 
+	/**
+	 * Show the menu1
+	 */
 	public static void desplegarMenu1() {
 
 		System.out.println(
@@ -256,6 +266,10 @@ public class Menu {
 
 	}
 
+
+	/**
+	 * Show all operations with Strings
+	 */
 	public static void operacionesConPalabras() {
 
 		switch (options2) {
@@ -303,6 +317,11 @@ public class Menu {
 
 	}
 
+
+	/**
+	 * Returns the divition between two numbers
+	 *  
+	 */
 	public static void numberOperations() {
 
 		options2 = entrada.nextInt();
@@ -336,6 +355,14 @@ public class Menu {
 
 	}
 
+	/**
+	 * Finds the max value of all arrays
+	 *
+	 * @param arrays1 is an int's arrays != null;
+	 * @param arrays2 is an int's arrays != null;
+	 * @param arrays3 is an int's arrays != null;
+	 * @return string that represents the max value of the arryas
+	 */
 	public static String operationsWithArrays(int[] array1, int[] array2, int[] array3) {
 
 		String c = "";
@@ -368,6 +395,14 @@ public class Menu {
 
 	}
 
+	/**
+	 * Finds the max value of all arrays
+	 *
+	 * @param arrays1 is an int's arrays != null;
+	 * @param arrays2 is an int's arrays != null;
+	 * @param arrays3 is an int's arrays != null;
+	 * @return double that represents the max value of the arryas
+	 */
 	public static double operationsWithArrays2(int[] array1, int[] array2, int[] array3) {
 
 		System.out.println("select a array \n (1) for array1 \n (2) for array2 \n (3) for array3");
@@ -426,6 +461,14 @@ public class Menu {
 
 	}
 
+	/**
+	 * Finds the max value of all arrays
+	 *
+	 * @param arrays1 is an int's arrays != null;
+	 * @param arrays2 is an int's arrays != null;
+	 * @param arrays3 is an int's arrays != null;
+	 * @return double that represents the max value of the arryas
+	 */
 	public static double operationsWithArrays3(int[] array1, int[] array2, int[] array3) {
 
 		System.out.println("select a array \n (1) for array1 \n (2) for array2 \n (3) for array3");
@@ -505,6 +548,16 @@ public class Menu {
 
 	}
 
+
+
+	/**
+	 * Finds the max value of all arrays
+	 *
+	 * @param arrays1 is an int's arrays != null;
+	 * @param arrays2 is an int's arrays != null;
+	 * @param arrays3 is an int's arrays != null;
+	 * @return double that represents the max value of the arryas
+	 */
 	public static int[] operationsWithArrays4(int[] array1, int[] array2, int[] array3) {
 		int operations[] = new int[array1.length];
 
@@ -660,6 +713,15 @@ public class Menu {
 
 	}
 
+
+	/**
+	 * Finds the max value of all arrays
+	 *
+	 * @param arrays1 is an int's arrays != null;
+	 * @param arrays2 is an int's arrays != null;
+	 * @param arrays3 is an int's arrays != null;
+	 * @return double that represents the max value of the arryas
+	 */
 	public static int[] operationsWithArrays5(int[] array1, int[] array2, int[] array3) {
 
 		int[] array = new int[array1.length + array2.length + array3.length];
@@ -688,6 +750,14 @@ public class Menu {
 
 	}
 
+	/**
+	 * Finds the max value of all arrays
+	 *
+	 * @param arrays1 is an int's arrays != null;
+	 * @param arrays2 is an int's arrays != null;
+	 * @param arrays3 is an int's arrays != null;
+	 * @return double that represents the max value of the arryas
+	 */
 	public static int operationsWithArrays6(int[] s) {
 
 		int count = 0;
@@ -704,6 +774,15 @@ public class Menu {
 		return count;
 	}
 
+
+	/**
+	 * Finds the max value of all arrays
+	 *
+	 * @param arrays1 is an int's arrays != null;
+	 * @param arrays2 is an int's arrays != null;
+	 * @param arrays3 is an int's arrays != null;
+	 * @return double that represents the max value of the arryas
+	 */
 	public static int[] duplicate(int[] s) {
 
 		int nums[] = new int[operationsWithArrays6(s)];
@@ -738,6 +817,13 @@ public class Menu {
 
 	}
 
+
+	/**
+	 * Numbers repaet
+	 *
+	 * @param s is an int's arrays != null
+	 * @return an int with the count
+	 */
 	public static int operationsWithArrays7(int[] s) {
 
 		int count = 0;
@@ -754,6 +840,13 @@ public class Menu {
 		return count;
 	}
 
+
+	/**
+	 * Finds the max value of all arrays
+	 *
+	 * @param s != null
+	 * @return double that represents the max value of the arryas
+	 */
 	public static int[] interception(int[] s) {
 
 		int nums[] = new int[operationsWithArrays7(s)];
@@ -788,6 +881,13 @@ public class Menu {
 
 	}
 
+
+	/**
+	 * Finds the max value of all arrays
+	 *
+	 * @param arrayWhitOut array != null
+	 * @return double that represents the max value of the arryas
+	 */
 	public static int[] burbuja(int[] arrayWhitOut) {
 		int i, j, aux;
 		int[] a = arrayWhitOut;
