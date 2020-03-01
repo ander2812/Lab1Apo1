@@ -138,6 +138,7 @@ public class Menu {
 				System.out.println(
 						"(9) show in screen the arrays type\n (10) indicate average value of the values etered into the array\n (11) indicate higher value\n (12) make operation with arrays\n (13) link the tree arrays typed \n (14) intercept arrays typed \n (15) turn array type \n (16) sort array ");
 
+				int[] s = operationsWithArrays5(array1, array2, array3);
 				options2 = entrada.nextInt();
 
 				switch (options2) {
@@ -156,60 +157,48 @@ public class Menu {
 
 					case 11:
 
-					System.out.println("the number higher  is " + operationsWithArrays3(array1, array2, array3));
+						System.out.println("the number higher  is " + operationsWithArrays3(array1, array2, array3));
 
-					break;
+						break;
 
 					case 12:
 
-						if (array1.length==array2.length && array1.length==array3.length) {
-
-							
+						if (array1.length == array2.length && array1.length == array3.length) {
 
 							int[] o = operationsWithArrays4(array1, array2, array3);
 
-							for  (int i=0;i<o.length;i++){
-						
-							System.out.println("The result of operation is "+o[i]);
+							for (int i = 0; i < o.length; i++) {
 
-						} 
+								System.out.println("The result of operation is " + o[i]);
 
-					}else {System.out.println("remember that to use this option the arrays must to have iqual size" );}
+							}
 
+						} else {
+							System.out.println("remember that to use this option the arrays must to have iqual size");
+						}
 
-					break;
+						break;
 
 					case 13:
 
-					String[] s = operationsWithArrays5(array1, array2, array3);
+						s = operationsWithArrays5(array1, array2, array3);
 
-					for  (int i=0;i<s.length;i++){
+						for (int i = 0; i < s.length; i++) {
 
-						System.out.println(s[i]);
-					}
+							System.out.println(s[i]);
+						}
 
 					case 14:
 
-					String[] string = operationsWithArrays6(array1, array2, array3);
-					
-					for  (int i=0;i<string.length;i++){
+						int[] k = duplicate(s);
 
-						System.out.println(string[i]);
-					}
+						for (int i = 0; i < k.length; i++) {
 
+							if (k[i] != 0) {
+								System.out.print(k[i]+ " ");
+							}
 
-
-
-					
-
-						
-
-						
-
-					
-
-					
-					
+						}
 
 				}
 
@@ -331,8 +320,6 @@ public class Menu {
 
 	public static double operationsWithArrays2(int[] array1, int[] array2, int[] array3) {
 
-		
-
 		System.out.println("select a array \n (1) for array1 \n (2) for array2 \n (3) for array3");
 
 		options2 = entrada.nextInt();
@@ -379,8 +366,6 @@ public class Menu {
 
 				}
 
-				
-
 				result = sum / array3.length;
 
 				break;
@@ -391,43 +376,37 @@ public class Menu {
 
 	}
 
-	public static double operationsWithArrays3(int[] array1, int[] array2, int[] array3){
+	public static double operationsWithArrays3(int[] array1, int[] array2, int[] array3) {
 
 		System.out.println("select a array \n (1) for array1 \n (2) for array2 \n (3) for array3");
 
 		options2 = entrada.nextInt();
 
-		int theOldest=0;
+		int theOldest = 0;
 
 		switch (options2) {
 
 			case 1:
 
-			theOldest = Integer.MIN_VALUE;
+				theOldest = Integer.MIN_VALUE;
 
-				
-				theOldest=0;
+				theOldest = 0;
 
 				for (int i = 0; i < array1.length; i++) {
 
-					for (int j=0; j< array1.length; j++){
+					for (int j = 0; j < array1.length; j++) {
 
-						if (array1[i]>array1[j]){
+						if (array1[i] > array1[j]) {
 
-							theOldest=array1[i];
-	
+							theOldest = array1[i];
+
 						}
-						
-						
-					}
 
-					
+					}
 
 				}
 
 				break;
-
-				
 
 			case 2:
 
@@ -437,18 +416,15 @@ public class Menu {
 
 				for (int i = 0; i < array2.length; i++) {
 
-					for (int j=0; j< array2.length; j++){
+					for (int j = 0; j < array2.length; j++) {
 
-						if (array2[i]>array2[j]){
+						if (array2[i] > array2[j]) {
 
-							theOldest=array2[i];
-	
+							theOldest = array2[i];
+
 						}
-						
-						
-					}
 
-					
+					}
 
 				}
 
@@ -458,26 +434,20 @@ public class Menu {
 
 				theOldest = 0;
 
-				
-
 				for (int i = 0; i < array3.length; i++) {
 
-					for (int j=0; j< array3.length; j++){
+					for (int j = 0; j < array3.length; j++) {
 
-						if (array3[i]>array3[j]){
+						if (array3[i] > array3[j]) {
 
-						theOldest=array3[i];
+							theOldest = array3[i];
 
 						}
 					}
-					
+
 				}
 
-				
-			
-			break;
-
-			
+				break;
 
 		}
 
@@ -485,124 +455,239 @@ public class Menu {
 
 	}
 
-	public static int[] operationsWithArrays4(int[] array1, int[] array2, int[] array3){
-		int operations[]=new int [array1.length];
+	public static int[] operationsWithArrays4(int[] array1, int[] array2, int[] array3) {
+		int operations[] = new int[array1.length];
 
-		System.out.println("select the operation \n (1) multiply \n (2) divide \n (3) subtract");
+		System.out.println("select the operation \n (1) multiply \n (2) sum \n (3) divide \n (4) subtract");
 
 		options2 = entrada.nextInt();
 
-		switch (options2){
+		switch (options2) {
 
 			case 1:
 
-			System.out.println("select two arrays \n (1) for array1 and array2 \n (2) for array2 and array3 \n (3) for array3 and array1 ");
+				System.out.println(
+						"select two arrays \n (1) for array1 and array2 \n (2) for array2 and array3 \n (3) for array3 and array1 ");
 
-			options2 = entrada.nextInt();
+				options2 = entrada.nextInt();
 
-			switch (options2){
+				switch (options2) {
 
-				case 1:
+					case 1:
 
-			
+						for (int i = 0; i < operations.length; i++) {
 
-				for (int i=0; i<operations.length; i++){
+							operations[i] = array1[i] * array2[i];
 
-					operations[i]=array1[i]*array2[i];
+						}
 
-					
+						break;
 
+					case 2:
 
+						for (int i = 0; i < operations.length; i++) {
+
+							operations[i] = array2[i] * array3[i];
+
+						}
+
+						break;
+
+					case 3:
+
+						for (int i = 0; i < operations.length; i++) {
+
+							operations[i] = array3[i] * array1[i];
+
+						}
+
+						break;
 
 				}
-				
-				break;
-				
 
-				
-			}
+			case 2:
+
+				System.out.println(
+						"select two arrays \n (1) for array1 and array2 \n (2) for array2 and array3 \n (3) for array3 and array1 ");
+
+				options2 = entrada.nextInt();
+
+				switch (options2) {
+
+					case 1:
+
+						for (int i = 0; i < operations.length; i++) {
+
+							operations[i] = array1[i] + array2[i];
+
+						}
+
+						break;
+
+					case 2:
+
+						for (int i = 0; i < operations.length; i++) {
+
+							operations[i] = array2[i] + array3[i];
+
+						}
+
+						break;
+
+					case 3:
+
+						for (int i = 0; i < operations.length; i++) {
+
+							operations[i] = array1[i] + array3[i];
+
+						}
+
+						break;
+
+				}
+
+			case 3:
+
+			case 4:
+
+				System.out.println(
+						"select two arrays \n (1) for array1 and array2 \n (2) for array2 and array3 \n (3) for array3 and array1 \n (4) for array2 and array1 \n (5) array3 and array2 \n (6) for array1 and array3 ");
+
+				options2 = entrada.nextInt();
+
+				switch (options) {
+
+					case 1:
+
+						for (int i = 0; i < operations.length; i++) {
+
+							operations[i] = array1[i] - array2[i];
+
+						}
+
+					case 2:
+
+						for (int i = 0; i < operations.length; i++) {
+
+							operations[i] = array2[i] - array3[i];
+
+						}
+
+						break;
+
+					case 3:
+
+						for (int i = 0; i < operations.length; i++) {
+
+							operations[i] = array3[i] - array1[i];
+
+						}
+
+						break;
+
+					case 4:
+
+						for (int i = 0; i < operations.length; i++) {
+
+							operations[i] = array2[i] - array1[i];
+
+						}
+
+					case 5:
+
+						for (int i = 0; i < operations.length; i++) {
+
+							operations[i] = array3[i] - array2[i];
+
+						}
+
+						break;
+				}
 
 		}
-
-
-
-		
-
-		
 
 		return operations;
 
-
 	}
 
-	public static String[] operationsWithArrays5(int[] array1, int[] array2, int[] array3 ){
+	public static int[] operationsWithArrays5(int[] array1, int[] array2, int[] array3) {
 
-		String[] array= new String[array1.length+array2.length+array3.length];
+		int[] array = new int[array1.length + array2.length + array3.length];
 
 		for (int i = 0; i < array.length; i++) {
-			
 
-			if(i>-1 && i<array1.length){
-				array[i]= Integer.toString(array1[i]);
+			if (i > -1 && i < array1.length) {
+				array[i] = array1[i];
 			}
 
-			if(i>array1.length-1 && i<array1.length+array2.length){
-			
-				array[i] = Integer.toString(array2[i-array1.length]);
-			
-			}
+			if (i > array1.length - 1 && i < array1.length + array2.length) {
 
-			if(i>array1.length+array2.length-1){
-
-				array[i]= Integer.toString(array3[i-(array1.length+array2.length)]);
-
+				array[i] = array2[i - array1.length];
 
 			}
-			
+
+			if (i > array1.length + array2.length - 1) {
+
+				array[i] = array3[i - (array1.length + array2.length)];
+
+			}
+
 		}
-
-		
-
 
 		return array;
 
-
 	}
 
-	public static String[] operationsWithArrays6(int[] array1, int[] array2, int[] array3 ){
+	public static int operationsWithArrays6(int[] s) {
 
-		String[] array= new String[array1.length+array2.length+array3.length];
+		int count = 0;
 
-		for (int i=0; i < array.length; i++) {
-			
-			for (int j=0; i<array.length; j++){
+		for (int i = 0; i < s.length; i++) {
 
-				if (array1[i]==array2[j]);
+			if (s[i] != 0) {
 
+				count++;
+			}
+
+		}
+
+		return count;
+	}
+
+	public static int[] duplicate(int[] s) {
+
+		int nums[] = new int[operationsWithArrays6(s)];
+		;
+
+		for (int i = 0; i < s.length; i++) {
+
+			for (int j = i + 1; j < s.length; j++) {
+
+				if ((s[i] != 0 && s[j] != 0) && s[i] == s[j]) {
+
+					s[j] = 0;
+
+				}
 
 			}
 
-					
-			
+			int j = 0;
+
+			for (int k = 0; k < s.length; k++) {
+
+				if (s[k] != 0) {
+
+					nums[j] = s[k];
+
+					j++;
+				}
+			}
+
 		}
 
-		
-
-
-		return array;
-
+		return nums;
 
 	}
-
-
-	
-
-
-
-
-	
-
-
 
 	public static void main(String[] args) {
 
