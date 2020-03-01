@@ -136,7 +136,7 @@ public class Menu {
 				}
 
 				System.out.println(
-						"(9) show in screen the arrays type\n (10) indicate average value of the values etered into the array\n (11) indicate higher value\n (12) make operation with arrays\n (13) link the tree arrays typed \n (14) intercept arrays typed \n (15) turn array type \n (16) sort array ");
+						"(9) show in screen the arrays type\n (10) indicate average value of the values etered into the array\n (11) indicate higher value\n (12) make operation with arrays\n (13) link the tree arrays typed \n (14) link the tree arrays typed \n   (15) intercept arrays typed whit \n (16) turn array type \n (17) sort array ");
 
 				int[] s = operationsWithArrays5(array1, array2, array3);
 				options2 = entrada.nextInt();
@@ -145,19 +145,22 @@ public class Menu {
 
 					case 9:
 
-						System.out.println("the result is equal to " + operationsWithArrays(array1, array2, array3));
+						System.out
+								.print("the result is equal to " + operationsWithArrays(array1, array2, array3) + " ");
 
 						break;
 
 					case 10:
 
-						System.out.println("the result is equal to " + operationsWithArrays2(array1, array2, array3));
+						System.out
+								.print("the result is equal to " + operationsWithArrays2(array1, array2, array3) + " ");
 
 						break;
 
 					case 11:
 
-						System.out.println("the number higher  is " + operationsWithArrays3(array1, array2, array3));
+						System.out
+								.print("the number higher  is " + operationsWithArrays3(array1, array2, array3) + " ");
 
 						break;
 
@@ -169,7 +172,7 @@ public class Menu {
 
 							for (int i = 0; i < o.length; i++) {
 
-								System.out.println("The result of operation is " + o[i]);
+								System.out.print("The result of operation is " + o[i] + " ");
 
 							}
 
@@ -185,20 +188,67 @@ public class Menu {
 
 						for (int i = 0; i < s.length; i++) {
 
-							System.out.println(s[i]);
+							System.out.print(s[i] + " ");
 						}
 
 					case 14:
 
 						int[] k = duplicate(s);
 
-						for (int i = 0; i < k.length; i++) {
+						for (int i = 0; i < k.length - 1; i++) {
 
 							if (k[i] != 0) {
-								System.out.print(k[i]+ " ");
+								System.out.print(k[i] + " ");
+
 							}
 
 						}
+
+						break;
+
+					case 15:
+
+						int[] r = interception(s);
+
+						for (int i = 0; i < r.length; i++) {
+
+							if (r[i] != 0) {
+
+								System.out.print(r[i] + " ");
+							}
+
+						}
+
+						break;
+
+						case 17:
+
+						System.out.println("Ordenar:\n 1.Array1\n2. Array2\n3. Array3");
+
+						options= entrada.nextInt();
+						int[] res;
+						switch (options) {
+							case 1:
+								res = burbuja(array1);
+								for (int i : res) {
+									System.out.print(i + " ");
+								}
+								break;
+								case 3:
+								res = burbuja(array3);
+								for (int i : res) {
+									System.out.print(i + " ");
+								}
+								break;
+								case 2:
+								res = burbuja(array2);
+								for (int i : res) {
+									System.out.print(i + " ");
+								}
+								break;
+						
+						}
+						break;
 
 				}
 
@@ -657,7 +707,6 @@ public class Menu {
 	public static int[] duplicate(int[] s) {
 
 		int nums[] = new int[operationsWithArrays6(s)];
-		;
 
 		for (int i = 0; i < s.length; i++) {
 
@@ -687,6 +736,71 @@ public class Menu {
 
 		return nums;
 
+	}
+
+	public static int operationsWithArrays7(int[] s) {
+
+		int count = 0;
+
+		for (int i = 0; i < s.length; i++) {
+
+			if (s[i] != 0) {
+
+				count++;
+			}
+
+		}
+
+		return count;
+	}
+
+	public static int[] interception(int[] s) {
+
+		int nums[] = new int[operationsWithArrays7(s)];
+
+		for (int i = 0; i < s.length; i++) {
+
+			for (int j = i + 1; j < s.length; j++) {
+
+				if ((s[i] != 0 && s[j] != 0) && s[i] == s[j]) {
+
+					s[j] = 0;
+
+				}
+
+			}
+
+			int j = 0;
+
+			for (int k = 0; k < s.length; k++) {
+
+				if (s[k] != 0) {
+
+					nums[j] = s[k];
+
+					j++;
+				}
+			}
+
+		}
+
+		return nums;
+
+	}
+
+	public static int[] burbuja(int[] arrayWhitOut) {
+		int i, j, aux;
+		int[] a = arrayWhitOut;
+		for (i = 0; i < a.length - 1; i++) {
+			for (j = 0; j < a.length - i - 1; j++) {
+				if (a[j + 1] < a[j]) {
+					aux = a[j + 1];
+					a[j + 1] = a[j];
+					a[j] = aux;
+				}
+			}
+		}
+		return a;
 	}
 
 	public static void main(String[] args) {
